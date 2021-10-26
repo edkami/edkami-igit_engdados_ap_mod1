@@ -114,7 +114,9 @@ class Emprestimos(Base):
 
 def create_db():
     # Criação do banco de dados caso não exista
-    engine = create_engine('postgresql://postgres:local@localhost/livraria', echo=True)
+    usuario_bd = 'user'
+    senha = 'password'
+    engine = create_engine(f'postgresql://{usuario_bd}:{senha}@localhost/livraria', echo=True)
     if not database_exists(engine.url):
         create_database(engine.url)
     print(f'Banco de dados criado: {database_exists(engine.url)}')
